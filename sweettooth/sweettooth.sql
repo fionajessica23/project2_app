@@ -1,7 +1,7 @@
 DROP TABLE recipes;
 DROP TABLE users;
 DROP TABLE categories;
--- DROP TABLE likes;
+DROP TABLE likes;
 
 
 CREATE TABLE users (
@@ -25,23 +25,23 @@ CREATE TABLE recipes (
   prep_time INTEGER,
   difficulty VARCHAR(200),
   serving VARCHAR(200),
-  content TEXT,
-  user_id INTEGER NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users (id),
-
-  category_id INTEGER NOT NULL,
-  FOREIGN KEY (category_id) REFERENCES categories (id)
+  content TEXT
+  -- user_id INTEGER NOT NULL,
+  -- FOREIGN KEY (user_id) REFERENCES users (id),
+  --
+  -- category_id INTEGER NOT NULL,
+  -- FOREIGN KEY (category_id) REFERENCES categories (id)
 );
 
 
-CREATE TABLE likes (
-  id SERIAL4 PRIMARY KEY,
-  user_id INTEGER NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users (id),
-
-  recipe_id INTEGER NOT NULL,
-  FOREIGN KEY (recipe_id) REFERENCES recipes (id)
-);
+-- CREATE TABLE likes (
+--   id SERIAL4 PRIMARY KEY,
+--   user_id INTEGER NOT NULL,
+--   FOREIGN KEY (user_id) REFERENCES users (id),
+--
+--   recipe_id INTEGER NOT NULL,
+--   FOREIGN KEY (recipe_id) REFERENCES recipes (id)
+-- );
 
 
 INSERT INTO users (name, email) VALUES ('fiona', 'fj@ga.com');
@@ -52,7 +52,7 @@ INSERT INTO categories (name) VALUES ('ice cream');
 INSERT INTO categories (name) VALUES ('drink');
 
 
-INSERT INTO recipes (title, image, prep_time, difficulty, serving, content, user_id, category_id) VALUES ('Cheesecake', 'https://www.cookipedia.co.uk/wiki/images/thumb/5/55/Easy_Philadelphia_cheesecake.jpg/300px-Easy_Philadelphia_cheesecake.jpg', 80, 'easy', 'serves 8', '125 g digestive biscuits crumbs
+INSERT INTO recipes (title, image, prep_time, difficulty, serving, content) VALUES ('Cheesecake', 'https://www.cookipedia.co.uk/wiki/images/thumb/5/55/Easy_Philadelphia_cheesecake.jpg/300px-Easy_Philadelphia_cheesecake.jpg', 80, 'easy', 'serves 8', '125 g digestive biscuits crumbs
 40 g butter, melted
 250 g Philadelphia Original
 397 g can condensed milk
@@ -63,9 +63,9 @@ Combine the biscuit crumbs and melted butter and press into the base of an 18 cm
 Whisk together the Philly and condensed milk. Then stir in the lemon juice until mixed. Pour over the prepared base and chill for at least 1 hour until set.
 Decorate with the summer fruits.
 Variations
-The summer fruits could be replaced with a mixture of prepared tropical fruits e.g. kiwi, pineapple, mango and passion fruit.', 1, 1);
+The summer fruits could be replaced with a mixture of prepared tropical fruits e.g. kiwi, pineapple, mango and passion fruit.');
 
-INSERT INTO recipes (title, image, prep_time, difficulty, serving, content, user_id, category_id) VALUES ('Matcha Chantilly Cake', 'http://1.bp.blogspot.com/-dVKZIOn7L8g/VSrjpzVLAWI/AAAAAAAATUI/9GMNmeDytmI/s1600/matcha%2Bchantilly%2Bcakes.jpg', 60, 'medium', 'serves 6', 'This recipe requires the use of six 3-inch pastry rings.
+INSERT INTO recipes (title, image, prep_time, difficulty, serving, content) VALUES ('Matcha Chantilly Cake', 'http://1.bp.blogspot.com/-dVKZIOn7L8g/VSrjpzVLAWI/AAAAAAAATUI/9GMNmeDytmI/s1600/matcha%2Bchantilly%2Bcakes.jpg', 60, 'medium', 'serves 6', 'This recipe requires the use of six 3-inch pastry rings.
 
 12 round tea biscuits (I like McVities)
 2 tablespoons matcha tea powder, plus extra for dusting
@@ -90,10 +90,10 @@ Slide the pastry rings off the cakes and gently peel away the acetate. Top the c
 Combine the 1 cup remaining heavy cream and remaining 1/4 cup confectioners’ sugar in a medium bowl. Beat on high speed until the cream holds stiff peaks. Transfer the whipped cream to a piping bag fitted with a large star decorator tip. Pipe the cream in large swirls on top of the cakes. Garnish the cakes with a raspberry and two matcha cream Pocky sticks, placed crosswise beside the berry.
 If you love the deliciously bitter flavor of pure matcha powder, then sift a little over each cake before serving.
 
-Keep leftover cakes refrigerated.', 2, 1);
+Keep leftover cakes refrigerated.');
 
 
-INSERT INTO recipes (title, image, prep_time, difficulty, serving, content, user_id, category_id) VALUES ('Green Tea Ice Cream', 'https://www.justonecookbook.com/wp-content/uploads/2014/03/Green-Tea-Ice-Cream.jpg', 30, 'medium', 'serves 4', 'Ingredients
+INSERT INTO recipes (title, image, prep_time, difficulty, serving, content) VALUES ('Green Tea Ice Cream', 'https://www.justonecookbook.com/wp-content/uploads/2014/03/Green-Tea-Ice-Cream.jpg', 30, 'medium', 'serves 4', 'Ingredients
 2 cups Half & Half (480 ml) (or 1 cup (240 ml) whole milk + 1 cup (240 ml) heavy (whipping) cream (butterfat 36-38%), See Notes)
 3 Tbsp matcha (green tea powder) (3 Tbsp = 18 g)
 ½ cup granulated sugar (½ cup = about 100 g)
@@ -104,10 +104,10 @@ Gather all the ingredients.
 2. In a medium saucepan, whisk together the half and half, sugar and salt.
 3. Start cooking the mixture over medium heat, and add green tea powder. Stir often and cook until the mixture starts to foam and is very hot to the touch but not boiling.
 4. Remove from the heat and transfer the mixture to a bowl sitting in an ice bath. When the mixture is cool, cover with plastic wrap and chill in the refrigerator for 2-3 hours.
-5. Once the mixture is thoroughly chilled, transfer to a pre-chilled ice cream maker and churn according to the manufacture instructions (20-25 minutes). Transfer the soft ice cream into an airtight container and freeze for at least 3 hours before serving.', 1, 2);
+5. Once the mixture is thoroughly chilled, transfer to a pre-chilled ice cream maker and churn according to the manufacture instructions (20-25 minutes). Transfer the soft ice cream into an airtight container and freeze for at least 3 hours before serving.');
 
 
-INSERT INTO recipes (title, image, prep_time, difficulty, serving, content, user_id, category_id) VALUES ('Blueberry Ice Cream', 'https://www.bakedbyrachel.com/wp-content/uploads/2015/08/blueberryicecream3_bakedbyrachel.jpg', 20, 'easy', 'serves 6', 'Ingredients:
+INSERT INTO recipes (title, image, prep_time, difficulty, serving, content) VALUES ('Blueberry Ice Cream', 'https://www.bakedbyrachel.com/wp-content/uploads/2015/08/blueberryicecream3_bakedbyrachel.jpg', 20, 'easy', 'serves 6', 'Ingredients:
 
 2C blueberries, fresh or frozen
 1C granulated sugar, divided
@@ -126,10 +126,10 @@ Directions:
 5. When milk mixture begins to steam, slowly drizzle 1 cup warm liquid into the yolks, while continuously whisking. Pour egg mixture into sacuepan, followed by blueberry puree. Stir to combine. Continue cooking until mixture coats the back of a wooden spoon or rubber spatula.
 6. Pour through mesh strainer into reserved heavy cream. Stir and cool over an ice bath to room temperature. Cover and chill thoroughly, 4-6 hours or overnight.
 7. Churn according to manufacturer directions.
-8. Transfer churned ice cream to a freezer safe container. Cover and freeze until solid.', 2, 2);
+8. Transfer churned ice cream to a freezer safe container. Cover and freeze until solid.');
 
 
-INSERT INTO recipes (title, image, prep_time, difficulty, serving, content, user_id, category_id) VALUES ('Peach Iced Tea', 'https://mbkr-minimalistbaker.netdna-ssl.com/wp-content/uploads/2014/06/Perfect-sweet-Peached-Iced-Tea-Perfect-for-summer-and-pool-days..jpg', 50, 'hard', 'serves 10', 'Ingredients
+INSERT INTO recipes (title, image, prep_time, difficulty, serving, content) VALUES ('Peach Iced Tea', 'https://mbkr-minimalistbaker.netdna-ssl.com/wp-content/uploads/2014/06/Perfect-sweet-Peached-Iced-Tea-Perfect-for-summer-and-pool-days..jpg', 50, 'hard', 'serves 10', 'Ingredients
 SIMPLE SYRUP
 1 cup organic cane sugar
 1 cup water
@@ -151,9 +151,9 @@ minutes or it can get bitter.
 reserve the peaches for later use, such as to place over oats or ice cream sundaes.
 6. To serve, either set out simple syrup and add as much to the tea as you like, or add all of the simple syrup to the tea and
 stir. I prefer leaving it separate. Serve tea over ice and fresh sliced peaches. Yields about 10 servings (with ice and
-peaches).', 1, 3);
+peaches).');
 
-INSERT INTO recipes (title, image, prep_time, difficulty, serving, content, user_id, category_id) VALUES ('Frozen Mint Lemonade', 'https://i2.wp.com/www.anediblemosaic.com/wp-content/uploads//2013/10/Limonana-Middle-Eastern-Frozen-Mint-Lemonade-3.jpg?w=725', 8, 'easy', 'serves 2', 'Ingredients
+INSERT INTO recipes (title, image, prep_time, difficulty, serving, content) VALUES ('Frozen Mint Lemonade', 'https://i2.wp.com/www.anediblemosaic.com/wp-content/uploads//2013/10/Limonana-Middle-Eastern-Frozen-Mint-Lemonade-3.jpg?w=725', 8, 'easy', 'serves 2', 'Ingredients
 6 tablespoons (115 g) sugar
 ½ cup (120 ml) plus 6 tablespoons (90 ml) water, divided
 ½ cup (120 ml) fresh lemon juice
@@ -166,4 +166,4 @@ Instructions
 until the sugar is dissolved. Cool to room temperature.
 2. Add the cooled sugar syrup, remaining ½ cup water, lemon juice, mint leaves, ice cubes, and orange blossom
 water (if using) to a blender. Pulse a few times to break up the ice and then process until slushy.
-3. Pour into 2 tall glasses, garnish with mint leaves if desired, and serve immediately.', 2, 3);
+3. Pour into 2 tall glasses, garnish with mint leaves if desired, and serve immediately.');

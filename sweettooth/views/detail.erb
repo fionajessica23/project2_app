@@ -1,21 +1,15 @@
+<h1>Recipe Detail Page</h1>
 
+
+<% if @recipe.nil? %>
+  <div class="">not found</div>
+<% else %>
   <div>
-    <h3>
-      <%= @recipe.title %>
-      <img src="<%= @recipe.image %>">
-      Prep & cooking time: <%= @recipe.prep_time %>
-      Difficulty: <%= @recipe.difficulty %>
-      Serving: <%= @recipe.serving %>
-      Method: <%= @recipe.content %>
-    </h3>
+    <div><%= @recipe.title %></div>
+    <div><img src="<%= @recipe.image %>"></div>
+    <div>Prep & cooking time: <%= @recipe.prep_time %></div>
+    <div>Difficulty: <%= @recipe.difficulty %></div>
+    <div>Serving: <%= @recipe.serving %></div>
+    <div>Method: <%= @recipe.content %></div>
   </div>
-
-
-
-  <p><a href="/detail/new">Add new recipe</a></p>
-  <a href="detail/<%= @recipe.id %>/edit">Edit</a>
-
-  <form action="/detail/<%= @recipe.id %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <button type="submit">Delete</button>
-  </form>
+<% end %>

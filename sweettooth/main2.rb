@@ -31,14 +31,36 @@ get '/' do
   erb :index
 end
 
+get '/myrecipe' do
+  erb :myrecipe
+end
+
+# create new recipe
+get '/detail/new' do
+  erb :new
+end
+
+get '/detail/:id' do
+  @recipe = Recipe.find(params[:id])
+  erb :detail
+end
+
 get '/detail/:id/edit' do
   @recipe = Recipe.find(params[:id])
   erb :edit
 end
 
-get '/detail/:id' do
-  @recipe = Recipe.find_by(id: params[:id])
-  erb :detail
+post '/myrecipe' do
+  recipe = Recipe.new
+  recipe.title = params[:title]
+  recipe.image = params[:image]
+  # recipe.category = params[:category]
+  recipe.prep_time = params[:prep_time]
+  recipe.difficulty = params[:difficulty]
+  recipe.serving = params[:serving]
+  recipe.content = params[:content]
+  recipe.save
+  redirect '/myrecipe'
 end
 
 put '/detail/:id' do
@@ -51,15 +73,11 @@ put '/detail/:id' do
   recipe.serving = params[:serving]
   recipe.content = params[:content]
   recipe.save
-  redirect '/myrecipe'
+  redirect "/detail/#{params[:id]}"
 end
 
 delete '/detail/:id' do
-  recipe = Recipe.find(params[:id])
+  recipe = Dessert.find(params[:id])
   recipe.destroy
   redirect '/myrecipe'
-end
-
-get '/myrecipe' do
-  erb :myrecipe
 end

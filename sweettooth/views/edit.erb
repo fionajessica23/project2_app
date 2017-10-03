@@ -6,9 +6,9 @@
   <div>Prep & cooking time: <input type="text" name="prep_time" value="<%= @recipe.prep_time %>"></div>
   <div>Difficulty: <input type="text" name="difficulty" value="<%= @recipe.difficulty %>"></div>
   <div>Serving: <input type="text" name="serving" value="<%= @recipe.serving %>"></div>
-  <div>Method: <textarea name="content" rows="8" cols="80"></textarea><%= @recipe.content %></div>
+  <div>Method: <textarea name="content" rows="8" cols="80"><%= @recipe.content %></textarea></div>
 
-  <div>Picture: <textarea name="image" rows="8" cols="80"></textarea><%= @recipe.image %></div>
+  <div>Picture: <textarea name="image" rows="8" cols="80"><%= @recipe.image %></textarea></div>
   <button type="submit">Update</button>
 
 </form>
