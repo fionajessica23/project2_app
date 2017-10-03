@@ -1,0 +1,21 @@
+
+  <div>
+    <h3>
+      <%= @recipe.title %>
+      <img src="<%= @recipe.image %>">
+      Prep & cooking time: <%= @recipe.prep_time %>
+      Difficulty: <%= @recipe.difficulty %>
+      Serving: <%= @recipe.serving %>
+      Method: <%= @recipe.content %>
+    </h3>
+  </div>
+
+
+
+  <p><a href="/detail/new">Add new recipe</a></p>
+  <a href="detail/<%= @recipe.id %>/edit">Edit</a>
+
+  <form action="/detail/<%= @recipe.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit">Delete</button>
+  </form>

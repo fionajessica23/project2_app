@@ -1,0 +1,14 @@
+<h1>List of Recipe</h1>
+
+
+
+<% @recipes.each do |recipe| %>
+  <div>
+    <h3>
+      <%= recipe.title %>
+
+      <img src="<%= recipe.image %>">
+
+    </h3>
+  </div>
+<% end %>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Recipe App</title>
+  <link rel='stylesheet' href='/stylesheets/main.css'>
+</head>
+<body>
+
+  <header>
+    <div>Logo</div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="">My recipe</a></li>
+        <li>
+        <% if logged_in? %>
+          <a href="/logout">Logout</a>
+        <% else %>
+          <a href="/login">Register/Login</a>
+        <% end %>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <% if logged_in? %>
+    logged in as <%= current_user.email %>
+  <%end%>
+
+  <%= yield %>
+
+</body>
