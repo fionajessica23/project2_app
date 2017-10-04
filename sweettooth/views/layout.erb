@@ -27,11 +27,17 @@
         </li>
       </ul>
     </nav>
+
   </header>
   <div class="content">
+    <% if flash[:error] %>
+      <div class="message">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
 
     <% if logged_in? %>
-      logged in as <%= current_user.email %>
+      Welcome <%= current_user.name %>
     <%end%>
 
     <%= yield %>

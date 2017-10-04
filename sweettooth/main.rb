@@ -1,12 +1,14 @@
 require 'pry'
 require 'sinatra'
 require 'sinatra/reloader'
+require 'sinatra/flash'
 require 'pg'
 require_relative 'db_config'
 require_relative 'models/recipe'
 require_relative 'models/user'
 require_relative 'models/category'
 require_relative 'models/like'
+require 'sinatra/flash'
 
 enable :sessions
 
@@ -22,6 +24,16 @@ helpers do
       return false
     end
   end
+
+  def if_not_logged_in_redirect_to_404
+    if !logged_in?
+      redirect '/page404'
+    end
+  end
+end
+
+get '/page404' do
+  erb :page404
 end
 
 get '/' do
@@ -29,33 +41,37 @@ get '/' do
   erb :index
 end
 
-get '/detail/:id/edit' do
+get '/recipe/edit/:id' do
+  if_not_logged_in_redirect_to_404
   @recipe = Recipe.find(params[:id])
   @categories = Category.all
-  erb :edit
+  erb :recipeedit
 end
 
-get '/detail/new' do
+get '/recipe/add' do
+  if_not_logged_in_redirect_to_404
   @categories = Category.all
-  erb :new
+  erb :recipeadd
 end
 
-get '/detail/:id' do
+get '/recipe/:id' do
   @recipe = Recipe.find_by(id: params[:id])
-  erb :detail
+  erb :recipe
 end
 
 get '/myrecipe' do
+  if_not_logged_in_redirect_to_404
   @recipes = Recipe.where(user_id: session[:user_id])
   erb :myrecipe
 end
 
-get '/category/:id' do
+get '/category/:id/recipe' do
   @recipes = Recipe.where(category_id: params[:id])
-  erb :category
+  erb :categoryrecipe
 end
 
-post '/myrecipe' do
+post '/recipe' do
+  if_not_logged_in_redirect_to_404
   recipe = Recipe.new
   recipe.title = params[:title]
   recipe.image = params[:image]
@@ -65,11 +81,16 @@ post '/myrecipe' do
   recipe.serving = params[:serving]
   recipe.content = params[:content]
   recipe.user_id = session[:user_id].to_i
-  recipe.save
+
+  if !recipe.save
+    flash[:error] = 'Unable to add recipe, please try again'
+    redirect '/recipe/add'
+  end
   redirect '/myrecipe'
 end
 
-put '/detail/:id' do
+put '/recipe/:id' do
+  if_not_logged_in_redirect_to_404
   recipe = Recipe.find(params[:id])
   recipe.title = params[:title]
   recipe.image = params[:image]
@@ -79,11 +100,16 @@ put '/detail/:id' do
   recipe.serving = params[:serving]
   recipe.content = params[:content]
   recipe.user_id = session[:user_id].to_i
-  recipe.save
+
+  if !recipe.save
+    flash[:error] = 'Unable to edit recipe, please try again'
+    redirect "/recipe/edit/#{params[:id]}"
+  end
   redirect '/myrecipe'
 end
 
-delete '/detail/:id' do
+delete '/recipe/:id' do
+  if_not_logged_in_redirect_to_404
   recipe = Recipe.find(params[:id])
   recipe.destroy
   redirect '/myrecipe'
@@ -95,18 +121,19 @@ get '/login' do
   erb :login
 end
 
-post '/session' do
+post '/login' do
   # find the user
   user = User.find_by(email: params[:email])
   #if found a user, and password is matched
   if user && user.authenticate(params[:password])
     # successful, create session then redirect
     # session = {}, session is an empty hash atm
+    flash[:error] = ''
     session[:user_id] = user.id
     redirect '/'
   else
     # don't redirect because we don't want to create a session for this
-    @message = 'incorrect email or password'
+    flash[:error] = 'Incorrect email or password'
     erb :login
   end
 end
@@ -127,7 +154,14 @@ post '/register' do
   user.name = params[:name]
   user.email = params[:email]
   user.password = params[:password]
-  user.save
+  if params[:password] != params[:confirmPassword]
+    flash[:error] = 'Password does not matched'
+    redirect '/login'
+  end
+  if !user.save
+    flash[:error] = 'Unable to create user account, please try again'
+    redirect '/login'
+  end
 
   user = User.find_by(email: params[:email])
   #if found a user, and password is matched

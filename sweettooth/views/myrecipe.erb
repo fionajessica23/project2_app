@@ -1,24 +1,24 @@
 <h1>My Recipe</h1>
 
 <p>
-<button class="button" onclick="window.location.href='/detail/new';">
+<button class="button" onclick="window.location.href='/recipe/add';">
    Add New Recipe
 </button>
 
 <% @recipes.each do |recipe| %>
 <div>
   <div><%= recipe.title %></div>
-  <div><a href="/detail/<%= recipe.id %>"><img class="detail-recipe-image" src="<%= recipe.image %>"></a></div>
+  <div><a href="/recipe/<%= recipe.id %>"><img class="detail-recipe-image" src="<%= recipe.image %>"></a></div>
   <div> Category: <%= recipe.category.name %></div>
   <div>Prep & cooking time: <%= recipe.prep_time %></div>
   <div>Difficulty: <%= recipe.difficulty %></div>
   <div>Serving: <%= recipe.serving %></div>
-  <a href="/detail/<%= recipe.id %>">View recipe</a> <br/>
-  <button class="button button2" onclick="window.location.href='/detail/<%= recipe.id %>/edit';">
+  <a href="/recipe/<%= recipe.id %>">View recipe</a> <br/>
+  <button class="button button2" onclick="window.location.href='/recipe/edit/<%= recipe.id %>';">
     Edit
   </button>
 
-  <form action="/detail/<%= recipe.id %>" method="post">
+  <form action="/recipe/<%= recipe.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
     <button class="button button3" type="submit">
       Delete

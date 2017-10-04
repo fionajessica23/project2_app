@@ -6,28 +6,28 @@ DROP TABLE categories;
 
 CREATE TABLE users (
   id SERIAL4 PRIMARY KEY,
-  name VARCHAR(200),
-  email VARCHAR(200),
-  password_digest VARCHAR (400)
+  name VARCHAR(200) NOT NULL,
+  email VARCHAR(200) NOT NULL,
+  password_digest VARCHAR (400) NOT NULL
 );
 
 
 
 CREATE TABLE categories (
   id SERIAL4 PRIMARY KEY,
-  name VARCHAR(200),
+  name VARCHAR(200) NOT NULL,
   image VARCHAR(400)
 );
 
 
 CREATE TABLE recipes (
   id SERIAL4 PRIMARY KEY,
-  title VARCHAR(200),
+  title VARCHAR(200) NOT NULL,
   image VARCHAR(400),
   prep_time INTEGER,
   difficulty VARCHAR(200),
   serving VARCHAR(200),
-  content TEXT,
+  content TEXT NOT NULL,
 
   user_id INTEGER NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users (id),

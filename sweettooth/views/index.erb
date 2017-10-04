@@ -6,7 +6,7 @@
     <!-- loop category list and display -->
     <% @categories.each do |category| %>
       <div><%= category.name %></div>
-      <div><a href="/category/<%= category.id %>"><img class="category-image" src="<%= category.image %>"></a></div>
+      <div><a href="/category/<%= category.id %>/recipe"><img class="category-image" src="<%= category.image %>"></a></div>
     <% end %>
   </div>
 
@@ -16,21 +16,21 @@
     <!--- loop category list and each of category loop again to get top 3 recipes -->
     <div>
       <h2>Top 3 Category Cake</h2>
-      <a href="/detail/1">Recipe 1</a> <br/>
-      <a href="/detail/2">Recipe 2</a> <br/>
-      <a href="/detail/3">Recipe 3</a> <br/>
+      <a href="/recipe/1">Recipe 1</a> <br/>
+      <a href="/recipe/2">Recipe 2</a> <br/>
+      <a href="/recipe/3">Recipe 3</a> <br/>
     </div>
     <div>
       <h2>Top 3 Category Ice Cream</h2>
-      <a href="/detail/4">Recipe 4</a> <br/>
-      <a href="/detail/5">Recipe 5</a> <br/>
-      <a href="/detail/6">Recipe 6</a> <br/>
+      <a href="/recipe/4">Recipe 4</a> <br/>
+      <a href="/recipe/5">Recipe 5</a> <br/>
+      <a href="/recipe/6">Recipe 6</a> <br/>
     </div>
     <div>
       <h2>Top 3 Category Drink</h2>
-      <a href="/detail/7">Recipe 7</a> <br/>
-      <a href="/detail/8">Recipe 8</a> <br/>
-      <a href="/detail/9">Recipe 9</a> <br/>
+      <a href="/recipe/7">Recipe 7</a> <br/>
+      <a href="/recipe/8">Recipe 8</a> <br/>
+      <a href="/recipe/9">Recipe 9</a> <br/>
     </div>
   </div>
 </div>
