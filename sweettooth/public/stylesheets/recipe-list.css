@@ -1,0 +1,44 @@
+.recipe-list {
+
+}
+
+
+
+.recipe-list .recipe-box {
+  margin: 15px 0;
+  width: 50%;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.recipe-list .recipe-box .left {
+  width: 70%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+.recipe-list .recipe-box .right {
+  display: inline-block;
+  vertical-align: top;
+
+}
+
+.recipe-list .recipe-box .title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
+.recipe-list .recipe-box .prep-time {
+  display: inline-block;
+}
+
+.recipe-list .recipe-box .difficulty {
+
+}
+
+.recipe-list .recipe-box .serving {
+
+}
