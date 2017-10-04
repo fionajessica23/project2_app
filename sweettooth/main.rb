@@ -25,7 +25,7 @@ helpers do
 end
 
 get '/' do
-  #@recipes = Recipe.all
+  @categories = Category.all
   erb :index
 end
 
@@ -44,10 +44,12 @@ get '/detail/:id' do
 end
 
 get '/myrecipe' do
+  @recipes = Recipe.where(user_id: session[:user_id])
   erb :myrecipe
 end
 
 get '/category/:id' do
+  @recipes = Recipe.where(category_id: params[:id])
   erb :category
 end
 

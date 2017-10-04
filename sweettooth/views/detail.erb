@@ -7,6 +7,7 @@
   <div>
     <div><%= @recipe.title %></div>
     <div><img class="detail-recipe-image" src="<%= @recipe.image %>"></div>
+    <div>Category: <%= @recipe.category.name %></div>
     <div>Prep & cooking time: <%= @recipe.prep_time %></div>
     <div>Difficulty: <%= @recipe.difficulty %></div>
     <div>Serving: <%= @recipe.serving %></div>

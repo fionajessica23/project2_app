@@ -4,9 +4,10 @@
   <!-- container to show categories -->
   <div>
     <!-- loop category list and display -->
-    <div><a href="/category/1"><img src="http://via.placeholder.com/200x200"></a></div>
-    <div><a href="/category/2"><img src="http://via.placeholder.com/200x200"></a></div>
-    <div><a href="/category/3"><img src="http://via.placeholder.com/200x200"></a></div>
+    <% @categories.each do |category| %>
+      <div><%= category.name %></div>
+      <div><a href="/category/<%= category.id %>"><img class="category-image" src="<%= category.image %>"></a></div>
+    <% end %>
   </div>
 
   <hr/>

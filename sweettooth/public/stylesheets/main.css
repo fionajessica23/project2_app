@@ -143,3 +143,12 @@ footer {
 .detail-recipe-image {
   width: 400px;
 }
+
+.category-image {
+  width: 300px;
+}
+
+.list-recipe-image {
+  width: 150px;
+  height: 150px;
+}
