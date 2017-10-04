@@ -3,7 +3,14 @@
 <form action="/myrecipe" method="post">
 
   <div>Title: <input type="text" name="title" value=""></div>
-  <!-- <div>Category: <input type="text" name="category" value=""></div> -->
+  <div>Category:
+    <select name="category_id">
+      <% @categories.each do |category| %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+      <% end %>
+    </select>
+
+  </div>
   <div>Prep & cooking time: <input type="text" name="prep_time" value=""></div>
   <div>Difficulty: <input type="text" name="difficulty" value=""></div>
   <div>Serving: <input type="text" name="serving" value=""></div>

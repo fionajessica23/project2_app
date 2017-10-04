@@ -31,10 +31,12 @@ end
 
 get '/detail/:id/edit' do
   @recipe = Recipe.find(params[:id])
+  @categories = Category.all
   erb :edit
 end
 
 get '/detail/new' do
+  @categories = Category.all
   erb :new
 end
 
@@ -57,11 +59,12 @@ post '/myrecipe' do
   recipe = Recipe.new
   recipe.title = params[:title]
   recipe.image = params[:image]
-  # recipe.category = params[:category]
+  recipe.category_id = params[:category_id].to_i
   recipe.prep_time = params[:prep_time]
   recipe.difficulty = params[:difficulty]
   recipe.serving = params[:serving]
   recipe.content = params[:content]
+  recipe.user_id = session[:user_id].to_i
   recipe.save
   redirect '/myrecipe'
 end
@@ -70,11 +73,12 @@ put '/detail/:id' do
   recipe = Recipe.find(params[:id])
   recipe.title = params[:title]
   recipe.image = params[:image]
-  # recipe.category = params[:category]
+  recipe.category_id = params[:category_id].to_i
   recipe.prep_time = params[:prep_time]
   recipe.difficulty = params[:difficulty]
   recipe.serving = params[:serving]
   recipe.content = params[:content]
+  recipe.user_id = session[:user_id].to_i
   recipe.save
   redirect '/myrecipe'
 end

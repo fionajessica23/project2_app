@@ -2,7 +2,17 @@
   <input type="hidden" name="_method" value="put">
 
   <div>Title: <input type="text" name="title" value="<%= @recipe.title %>"></div>
-  <!-- <div>Category: <input type="text" name="category" value=""></div> -->
+  <div>Category:
+    <select name="category_id">
+      <% @categories.each do |category| %>
+        <% if category.id == @recipe.category_id %>
+            <option value="<%= category.id %>" selected><%= category.name %></option>
+          <% else %>
+            <option value="<%= category.id %>"><%= category.name %></option>
+        <% end %>
+      <% end %>
+    </select>
+  </div>
   <div>Prep & cooking time: <input type="text" name="prep_time" value="<%= @recipe.prep_time %>"></div>
   <div>Difficulty: <input type="text" name="difficulty" value="<%= @recipe.difficulty %>"></div>
   <div>Serving: <input type="text" name="serving" value="<%= @recipe.serving %>"></div>
