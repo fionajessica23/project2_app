@@ -1,8 +1,10 @@
 <h1>My Recipe</h1>
 
 
-<p><a href="/detail/new">Add new recipe</a></p>
-
+<p>
+<button class="button" onclick="window.location.href='/detail/new';">
+   Add New Recipe
+</button>
 
 <div>
   <div>Matcha</div>
@@ -11,11 +13,15 @@
   <div>Difficulty: easy</div>
   <div>Serving: serves 6</div>
   <a href="/detail/1">View recipe</a> <br/>
-  <a href="/detail/1/edit">Edit</a> <br/>
+  <button class="button button2" onclick="window.location.href='/detail/1/edit';">
+    Edit
+  </button>
 
   <form action="/detail/1" method="post">
     <input type="hidden" name="_method" value="delete">
-    <button type="submit">Delete</button>
+    <button class="button button3" type="submit">
+      Delete
+    </button>
   </form>
 
 </div> </br></br>
@@ -26,12 +32,16 @@
   <div>Prep & cooking time: 20 mins</div>
   <div>Difficulty: medium</div>
   <div>Serving: serves 8</div>
+
   <a href="/detail/2">View recipe</a> <br/>
-  <a href="/detail/2/edit">Edit</a> <br/>
+  <button class="button button2" onclick="window.location.href='/detail/2/edit';">
+    Edit
+  </button>
 
   <form action="/detail/2" method="post">
     <input type="hidden" name="_method" value="delete">
-    <button type="submit">Delete</button>
+    <button class="button button3" type="submit">
+      Delete
+    </button>
   </form>
-
 </div>
