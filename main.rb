@@ -7,7 +7,7 @@ require_relative 'db_config'
 require_relative 'models/recipe'
 require_relative 'models/user'
 require_relative 'models/category'
-require_relative 'models/like'
+require_relative 'models/bookmark'
 
 enable :sessions
 
@@ -68,6 +68,12 @@ get '/category/:id/recipe' do
   @recipes = Recipe.where(category_id: params[:id])
   erb :categoryrecipe
 end
+
+get '/bookmark' do
+  @recipes = Recipe.where()
+  erb :bookmark
+end
+
 
 post '/recipe' do
   if_not_logged_in_redirect_to_404

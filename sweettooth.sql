@@ -1,14 +1,16 @@
+DROP TABLE bookmarks;
 DROP TABLE recipes;
 DROP TABLE users;
 DROP TABLE categories;
--- DROP TABLE likes;
+
 
 
 CREATE TABLE users (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(200) NOT NULL,
   email VARCHAR(200) NOT NULL,
-  password_digest VARCHAR (400) NOT NULL
+  password_digest VARCHAR (400) NOT NULL,
+  created_at VARCHAR(400) DEFAULT now()
 );
 
 
@@ -33,18 +35,22 @@ CREATE TABLE recipes (
   FOREIGN KEY (user_id) REFERENCES users (id),
 
   category_id INTEGER NOT NULL,
-  FOREIGN KEY (category_id) REFERENCES categories (id)
+  FOREIGN KEY (category_id) REFERENCES categories (id),
+
+    created_at VARCHAR(400) DEFAULT now()
 );
 
 
--- CREATE TABLE likes (
---   id SERIAL4 PRIMARY KEY,
---   user_id INTEGER NOT NULL,
---   FOREIGN KEY (user_id) REFERENCES users (id),
---
---   recipe_id INTEGER NOT NULL,
---   FOREIGN KEY (recipe_id) REFERENCES recipes (id)
--- );
+CREATE TABLE bookmarks (
+  id SERIAL4 PRIMARY KEY,
+  user_id INTEGER NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (id),
+
+  recipe_id INTEGER NOT NULL,
+  FOREIGN KEY (recipe_id) REFERENCES recipes (id),
+
+  created_at VARCHAR(400) DEFAULT now()
+);
 
 INSERT INTO users (name, email, password_digest) VALUES ('Fiona', 'fj@ga.com', '$2a$10$5Kk4daZs.pP7YoA4RCLp5.f7.bTQj3byZ0u3isVaV.IDSQz53eOgq');
 INSERT INTO users (name, email, password_digest) VALUES ('Arya', 'al@ga.com', '$2a$10$5Kk4daZs.pP7YoA4RCLp5.f7.bTQj3byZ0u3isVaV.IDSQz53eOgq');
@@ -171,3 +177,10 @@ until the sugar is dissolved. Cool to room temperature.
 2. Add the cooled sugar syrup, remaining ½ cup water, lemon juice, mint leaves, ice cubes, and orange blossom
 water (if using) to a blender. Pulse a few times to break up the ice and then process until slushy.
 3. Pour into 2 tall glasses, garnish with mint leaves if desired, and serve immediately.', 2, 3);
+
+
+INSERT INTO bookmarks (user_id, recipe_id) VALUES (1, 2);
+INSERT INTO bookmarks (user_id, recipe_id) VALUES (2, 2);
+INSERT INTO bookmarks (user_id, recipe_id) VALUES (1, 1);
+INSERT INTO bookmarks (user_id, recipe_id) VALUES (2, 1);
+INSERT INTO bookmarks (user_id, recipe_id) VALUES (1, 3);
