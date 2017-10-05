@@ -1,6 +1,6 @@
 require 'pry'
 require 'sinatra'
-# require 'sinatra/reloader'
+require 'sinatra/reloader'
 require 'sinatra/flash'
 require 'pg'
 require_relative 'db_config'

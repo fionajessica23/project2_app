@@ -2,35 +2,37 @@
   <h1>Home Page</h1>
   <h2>Category</h2>
   <!-- container to show categories -->
-  <div>
+  <div class="category-wrapper">
     <!-- loop category list and display -->
     <% @categories.each do |category| %>
-      <div><%= category.name %></div>
-      <div><a href="/category/<%= category.id %>/recipe"><img class="category-image" src="<%= category.image %>"></a></div>
+      <div class="category-box">
+        <div><%= category.name %></div>
+        <div><a href="/category/<%= category.id %>/recipe"><img class="category-image" src="<%= category.image %>"></a></div>
+      </div>
     <% end %>
   </div>
 
   <hr/>
   <!-- container to show top 3 recipes for each category -->
-  <div>
+  <div class="all-recipe-list">
     <!--- loop category list and each of category loop again to get top 3 recipes -->
-    <div>
-      <h2>Top 3 Category Cake</h2>
-      <a href="/recipe/1">Recipe 1</a> <br/>
-      <a href="/recipe/2">Recipe 2</a> <br/>
-      <a href="/recipe/3">Recipe 3</a> <br/>
+    <div class="category-cake-recipe same-line">
+      <div class=""><h2>Top 3 Category <%= @categories[0].name%></h2></div>
+      <div class=""><a href="/recipe/1">Recipe 1</a></div>
+      <div class=""><a href="/recipe/2">Recipe 2</a></div>
+      <div class=""><a href="/recipe/3">Recipe 3</a></div>
     </div>
-    <div>
-      <h2>Top 3 Category Ice Cream</h2>
-      <a href="/recipe/4">Recipe 4</a> <br/>
-      <a href="/recipe/5">Recipe 5</a> <br/>
-      <a href="/recipe/6">Recipe 6</a> <br/>
+    <div class="category-ice-cream-recipe same-line">
+      <div class=""><h2>Top 3 Category <%= @categories[1].name%></h2></div>
+      <div class=""><a href="/recipe/4">Recipe 4</a></div>
+      <div class=""><a href="/recipe/5">Recipe 5</a></div>
+      <div class=""><a href="/recipe/6">Recipe 6</a></div>
     </div>
-    <div>
-      <h2>Top 3 Category Drink</h2>
-      <a href="/recipe/7">Recipe 7</a> <br/>
-      <a href="/recipe/8">Recipe 8</a> <br/>
-      <a href="/recipe/9">Recipe 9</a> <br/>
+    <div class="category-drink-recipe same-line">
+      <div class=""><h2>Top 3 Category <%= @categories[2].name%></h2></div>
+      <div class=""><a href="/recipe/7">Recipe 7</a></div>
+      <div class=""><a href="/recipe/8">Recipe 8</a></div>
+      <div class=""><a href="/recipe/9">Recipe 9</a></div>
     </div>
   </div>
 </div>

@@ -1,0 +1,28 @@
+.homepage {
+
+}
+
+.homepage .category-wrapper {
+  text-align: center;
+}
+
+.homepage .category-box {
+  display: inline-block;
+  vertical-align: top;
+  margin: 15px 40px;
+  width: 25%;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.homepage .all-recipe-list {
+  text-align: center;
+}
+
+.homepage .same-line {
+  display: inline-block;
+  vertical-align: top;
+  width: 30%;
+}
