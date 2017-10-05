@@ -1,43 +1,44 @@
-<h1>Login Page</h1>
+<div class="login-page">
+  <h1>Login Page</h1>
 
-<!-- container to display login -->
-<div class="">
-  <h3>Sign in</h3>
-  <form action="/login" method="post">
-    <div class="">
-      <label for="">Email</label>
-      <input name="email" type="text">
-    </div>
+  <!-- container to display login -->
+  <div class="left">
+    <h3>Sign in</h3>
+    <form action="/login" method="post">
+      <div class="">
+        <label for="">Email</label>
+        <input name="email" type="text">
+      </div>
 
-    <div class="">
-      <label for="">Password</label>
-      <input name="password" type="password">
-    </div>
-    <button type="submit">Login</button>
-  </form>
+      <div class="">
+        <label for="">Password</label>
+        <input name="password" type="password">
+      </div>
+      <button class="button full-width" type="submit">Login</button>
+    </form>
+  </div>
 
-</div>
-
-<!-- container to display create account -->
-<div class="">
-  <h3>Create New Account</h3>
-  <form action="/register" method="post">
-    <div class="">
-      <label for="">Full Name</label>
-      <input name="name" type="text">
-    </div>
-    <div class="">
-      <label for="">Email</label>
-      <input name="email" type="text">
-    </div>
-    <div class="">
-      <label for="">Password</label>
-      <input name="password" type="password">
-    </div>
-    <div class="">
-      <label for="">Confirm Password</label>
-      <input name="confirmPassword" type="password">
-    </div>
-    <button type="submit">Create Account</button>
-  </form>
+    <!-- container to display create account -->
+  <div class="right">
+    <h3>Create New Account</h3>
+    <form action="/register" method="post">
+      <div class="">
+        <label for="">Full Name</label>
+        <input name="name" type="text">
+      </div>
+      <div class="">
+        <label for="">Email</label>
+        <input name="email" type="text">
+      </div>
+      <div class="">
+        <label for="">Password</label>
+        <input name="password" type="password">
+      </div>
+      <div class="">
+        <label for="">Confirm Password</label>
+        <input name="confirmPassword" type="password">
+      </div>
+      <button class="button button2 full-width" type="submit">Create Account</button>
+    </form>
+  </div>
 </div>

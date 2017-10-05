@@ -1,12 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
 .recipe-list {
 
 }
 
-
-
 .recipe-list .recipe-box {
+  display: inline-block;
   margin: 15px 0;
-  width: 50%;
+  width: 49%;
   border: 1px solid black;
   border-radius: 20px;
   padding: 20px;

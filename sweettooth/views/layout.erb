@@ -5,6 +5,8 @@
   <title>My Recipe App</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
   <link rel='stylesheet' href='/stylesheets/recipe-list.css'>
+  <link rel='stylesheet' href='/stylesheets/button.css'>
+  <link rel='stylesheet' href='/stylesheets/form.css'>
 </head>
 <body>
 
@@ -38,7 +40,7 @@
     <% end %>
 
     <% if logged_in? %>
-      Welcome <%= current_user.name %>
+      Hi <%= current_user.name %>
     <%end%>
 
     <%= yield %>

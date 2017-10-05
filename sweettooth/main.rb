@@ -121,12 +121,9 @@ get '/login' do
 end
 
 post '/login' do
-  # find the user
   user = User.find_by(email: params[:email])
-  #if found a user, and password is matched
+
   if user && user.authenticate(params[:password])
-    # successful, create session then redirect
-    # session = {}, session is an empty hash atm
     flash[:error] = ''
     session[:user_id] = user.id
     redirect '/'
@@ -137,7 +134,6 @@ post '/login' do
   end
 end
 
-
 get '/logout' do
   if logged_in?
     session[:user_id] = nil
@@ -147,7 +143,6 @@ end
 
 # ====================================================
 # creating new account
-
 post '/register' do
   user = User.new
   user.name = params[:name]
@@ -163,10 +158,8 @@ post '/register' do
   end
 
   user = User.find_by(email: params[:email])
-  #if found a user, and password is matched
+
   if user && user.authenticate(params[:password])
-    # successful, create session then redirect
-    # session = {}, session is an empty hash atm
     session[:user_id] = user.id
     redirect '/'
   end
