@@ -19,19 +19,19 @@
     <div class="category-cake-recipe same-line">
       <div class=""><h2>Recent <%= @categories[0].name%> recipe</h2></div>
       <% @recent_3_recipe_category1.each do |recipe| %>
-      <div class=""><%= recipe.title %></div>
+      <div class=""><a href="/recipe/<%= recipe.id %>"><%= recipe.title %></a></div>
       <% end %>
     </div>
     <div class="category-ice-cream-recipe same-line">
       <div class=""><h2>Recent <%= @categories[1].name%> recipe</h2></div>
       <% @recent_3_recipe_category2.each do |recipe| %>
-      <div class=""><%= recipe.title %></div>
+      <div class=""><a href="/recipe/<%= recipe.id %>"><%= recipe.title %></a></div>
       <% end %>
     </div>
     <div class="category-drink-recipe same-line">
       <div class=""><h2>Recent <%= @categories[2].name%> recipe</h2></div>
       <% @recent_3_recipe_category3.each do |recipe| %>
-      <div class=""><%= recipe.title %></div>
+      <div class=""><a href="/recipe/<%= recipe.id %>"><%= recipe.title %></a></div>
       <% end %>
     </div>
   </div>

@@ -3,8 +3,6 @@ DROP TABLE recipes;
 DROP TABLE users;
 DROP TABLE categories;
 
-
-
 CREATE TABLE users (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(200) NOT NULL,
@@ -13,14 +11,11 @@ CREATE TABLE users (
   created_at VARCHAR(400) DEFAULT now()
 );
 
-
-
 CREATE TABLE categories (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(200) NOT NULL,
   image VARCHAR(400)
 );
-
 
 CREATE TABLE recipes (
   id SERIAL4 PRIMARY KEY,

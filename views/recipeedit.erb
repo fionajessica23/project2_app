@@ -13,7 +13,7 @@
       <% end %>
     </select>
   </div>
-  <div>Prep & cooking time: <input type="text" name="prep_time" value="<%= @recipe.prep_time %>"></div>
+  <div>Prep & cooking time: (minutes)<input type="text" name="prep_time" value="<%= @recipe.prep_time %>"></div>
   <div>Difficulty: <input type="text" name="difficulty" value="<%= @recipe.difficulty %>"></div>
   <div>Serving: <input type="text" name="serving" value="<%= @recipe.serving %>"></div>
   <div>Method: <textarea name="content" rows="8" cols="80"><%= @recipe.content %></textarea></div>
