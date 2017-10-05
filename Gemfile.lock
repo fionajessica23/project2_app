@@ -36,6 +36,8 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.0)
       tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     slop (3.6.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
@@ -52,6 +54,7 @@ DEPENDENCIES
   pg
   pry
   sinatra
+  sinatra-flash
 
 BUNDLED WITH
    1.15.4
