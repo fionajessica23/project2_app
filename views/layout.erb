@@ -21,18 +21,21 @@
 
       <ul>
         <li><a href="/">Home</a></li>
+        <li><a href="/category/1/recipe">Cake</a></li>
+        <li><a href="/category/2/recipe">Ice Cream</a></li>
+        <li><a href="/category/3/recipe">Drink</a></li>
         <% if logged_in? %>
           <li><a href="/bookmark">My Saved Recipe</a></li>
           <li><a href="/myrecipe">My Recipe</a></li>
         <% end %>
 
-        <li>
+
         <% if logged_in? %>
-          <a href="/logout">Logout</a>
+          <li><a class="logout" href="/logout">Logout</a></li>
         <% else %>
-          <a href="/login">Register/Login</a>
+          <li><a class="login" href="/login">Register/Login</a></li>
         <% end %>
-        </li>
+
       </ul>
     </nav>
 

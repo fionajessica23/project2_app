@@ -29,6 +29,7 @@ ul {
 
 li {
   float: left;
+  text-transform: uppercase;
 }
 
 li a {
@@ -108,4 +109,12 @@ footer {
 
 .full-width {
   width: 100%;
+}
+
+.login {
+  background-color: #4CAF50;
+}
+
+.logout {
+  background-color:  #f44336;
 }
