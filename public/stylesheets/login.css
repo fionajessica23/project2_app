@@ -1,0 +1,13 @@
+.left {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 50px;
+  width: 49%;
+}
+
+.right {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 50px;
+  width: 49%;
+}

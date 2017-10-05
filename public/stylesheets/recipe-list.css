@@ -1,6 +1,6 @@
-* {
+/** {
   box-sizing: border-box;
-}
+}*/
 
 .recipe-list {
 
@@ -8,8 +8,9 @@
 
 .recipe-list .recipe-box {
   display: inline-block;
-  margin: 15px 0;
-  width: 49%;
+  vertical-align: top;
+  margin: 15px 40px;
+  width: 40%;
   border: 1px solid black;
   border-radius: 20px;
   padding: 20px;
@@ -19,29 +20,41 @@
   width: 70%;
   display: inline-block;
   vertical-align: top;
+  padding: 0;
+  text-transform: capitalize;
 }
 
-
 .recipe-list .recipe-box .right {
+  width: 25%;
   display: inline-block;
   vertical-align: top;
-
+  padding: 0;
 }
 
 .recipe-list .recipe-box .title {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 30px;
+  padding-bottom: 20px;
 }
 
 
 .recipe-list .recipe-box .prep-time {
   display: inline-block;
+  vertical-align: top;
+  padding-right: 20px;
 }
 
 .recipe-list .recipe-box .difficulty {
-
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 20px;
 }
 
 .recipe-list .recipe-box .serving {
+  display: inline-block;
+  vertical-align: top;
+}
 
+.recipe-list .recipe-box .view-recipe {
+  padding-top: 30px;
 }

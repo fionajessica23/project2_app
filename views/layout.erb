@@ -5,8 +5,10 @@
   <title>My Recipe App</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
   <link rel='stylesheet' href='/stylesheets/recipe-list.css'>
+  <link rel='stylesheet' href='/stylesheets/my-recipe-list.css'>
   <link rel='stylesheet' href='/stylesheets/button.css'>
   <link rel='stylesheet' href='/stylesheets/form.css'>
+  <link rel='stylesheet' href='/stylesheets/login.css'>
 </head>
 <body>
 
@@ -40,7 +42,7 @@
     <% end %>
 
     <% if logged_in? %>
-      Hi <%= current_user.name %>
+      <h3>Hi <%= current_user.name %></h3>
     <%end%>
 
     <%= yield %>
@@ -49,3 +51,4 @@
     <div>Made with  <span class="love">♥</span>  in Melbourne</div>
   </footer>
 </body>
+</html>

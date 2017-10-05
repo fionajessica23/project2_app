@@ -46,13 +46,13 @@ CREATE TABLE recipes (
 --   FOREIGN KEY (recipe_id) REFERENCES recipes (id)
 -- );
 
-INSERT INTO users (name, email, password_digest) VALUES ('fiona', 'fj@ga.com', '$2a$10$5Kk4daZs.pP7YoA4RCLp5.f7.bTQj3byZ0u3isVaV.IDSQz53eOgq');
-INSERT INTO users (name, email, password_digest) VALUES ('arya', 'al@ga.com', '$2a$10$5Kk4daZs.pP7YoA4RCLp5.f7.bTQj3byZ0u3isVaV.IDSQz53eOgq');
+INSERT INTO users (name, email, password_digest) VALUES ('Fiona', 'fj@ga.com', '$2a$10$5Kk4daZs.pP7YoA4RCLp5.f7.bTQj3byZ0u3isVaV.IDSQz53eOgq');
+INSERT INTO users (name, email, password_digest) VALUES ('Arya', 'al@ga.com', '$2a$10$5Kk4daZs.pP7YoA4RCLp5.f7.bTQj3byZ0u3isVaV.IDSQz53eOgq');
 
 
-INSERT INTO categories (name, image) VALUES ('cake', 'https://truffle-assets.imgix.net/c0f9e8b5-emily-515-strawberry-lemonade-icebox-cake-thumbnail-square.png');
-INSERT INTO categories (name, image) VALUES ('ice cream', 'http://www.30abikerentalsandicecream.com/wp-content/uploads/2015/04/Ice-Cream-on-30a.jpg');
-INSERT INTO categories (name, image) VALUES ('drink', 'https://s.thestreet.com/files/tsc/v2008/photos/all-pics/food/LemonDropMartini-insidelarge.jpg');
+INSERT INTO categories (name, image) VALUES ('Cake', 'https://truffle-assets.imgix.net/c0f9e8b5-emily-515-strawberry-lemonade-icebox-cake-thumbnail-square.png');
+INSERT INTO categories (name, image) VALUES ('Ice Cream', 'http://www.30abikerentalsandicecream.com/wp-content/uploads/2015/04/Ice-Cream-on-30a.jpg');
+INSERT INTO categories (name, image) VALUES ('Drink', 'https://s.thestreet.com/files/tsc/v2008/photos/all-pics/food/LemonDropMartini-insidelarge.jpg');
 
 
 INSERT INTO recipes (title, image, prep_time, difficulty, serving, content, user_id, category_id) VALUES ('Cheesecake', 'https://www.cookipedia.co.uk/wiki/images/thumb/5/55/Easy_Philadelphia_cheesecake.jpg/300px-Easy_Philadelphia_cheesecake.jpg', 80, 'easy', 'serves 8', '125 g digestive biscuits crumbs

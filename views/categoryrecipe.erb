@@ -13,7 +13,7 @@
             <div class="prep-time"><%= recipe.prep_time %> minutes</div>
             <div class="difficulty"> <%= recipe.difficulty %></div>
             <div class="serving"> <%= recipe.serving %></div>
-            <a href="/recipe/<%= recipe.id %>">View recipe</a> <br/>
+            <div class="view-recipe"><a href="/recipe/<%= recipe.id %>">View recipe</a></div>
           </div>
 
           <div class="right">
@@ -23,7 +23,7 @@
         </div>
 
       <% end %>
-    <div>
+    </div>
   <% end %>
 
 </div>

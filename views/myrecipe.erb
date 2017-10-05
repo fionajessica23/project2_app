@@ -1,0 +1,41 @@
+<div class="my-recipe-list">
+  <h1>My Recipe</h1>
+
+  <p>
+  <button class="button" onclick="window.location.href='/recipe/add';">
+     Add New Recipe
+  </button>
+
+  <% @recipes.each do |recipe| %>
+  <div class="recipe-box">
+
+    <div class="left">
+      <div class="title"><%= recipe.title %></div>
+      <div class="category">Category: <%= recipe.category.name %></div>
+      <div class="prep-time"><%= recipe.prep_time %> minutes</div>
+      <div class="difficulty"><%= recipe.difficulty %></div>
+      <div class="serving"><%= recipe.serving %></div>
+    </div>
+
+    <div class="right">
+      <div><a href="/recipe/<%= recipe.id %>"><img class="list-recipe-image" src="<%= recipe.image %>"></a></div>
+    </div>
+
+
+    <div class="after">
+      <div class="view-recipe same-line"><a href="/recipe/<%= recipe.id %>">View recipe</a></div>
+
+      <button class="button button2 same-line" onclick="window.location.href='/recipe/edit/<%= recipe.id %>';">
+        Edit
+      </button>
+
+      <form class='same-line' action="/recipe/<%= recipe.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button class="button button3 same-line" type="submit">
+          Delete
+        </button>
+      </form>
+    </div>
+  </div>
+  <% end %>
+</div>
