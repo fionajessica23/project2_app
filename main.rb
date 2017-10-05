@@ -29,6 +29,13 @@ helpers do
       redirect '/page404'
     end
   end
+
+
+  def is_recipe_has_been_bookmarked(recipe_id)
+    # if nil = false, meaning record is exist
+    return !Bookmark.find_by(user_id: session[:user_id], recipe_id: recipe_id).nil?
+  end
+
 end
 
 get '/page404' do
@@ -37,6 +44,13 @@ end
 
 get '/' do
   @categories = Category.all
+
+  @recent_3_recipe_category1 = Recipe.all.where(category_id: 1).order(created_at: :asc).limit(3)
+
+  @recent_3_recipe_category2 = Recipe.all.where(category_id: 2).order(created_at: :asc).limit(3)
+
+  @recent_3_recipe_category3 = Recipe.all.where(category_id: 3).order(created_at: :asc).limit(3)
+
   erb :index
 end
 
@@ -70,10 +84,10 @@ get '/category/:id/recipe' do
 end
 
 get '/bookmark' do
-  @recipes = Recipe.where()
+  if_not_logged_in_redirect_to_404
+  @user_recipe_bookmarks = current_user.bookmarks
   erb :bookmark
 end
-
 
 post '/recipe' do
   if_not_logged_in_redirect_to_404
@@ -93,6 +107,17 @@ post '/recipe' do
   end
   redirect '/myrecipe'
 end
+
+
+post "/bookmark" do
+  if_not_logged_in_redirect_to_404
+  bookmark = Bookmark.new
+  bookmark.user_id = session[:user_id]
+  bookmark.recipe_id = params[:recipe_id]
+  bookmark.save
+  redirect '/bookmark'
+end
+
 
 put '/recipe/:id' do
   if_not_logged_in_redirect_to_404
@@ -119,6 +144,14 @@ delete '/recipe/:id' do
   recipe.destroy
   redirect '/myrecipe'
 end
+
+delete '/bookmark/:id' do
+  if_not_logged_in_redirect_to_404
+  bookmark = Bookmark.find_by(user_id: session[:user_id], recipe_id: params[:id])
+  bookmark.destroy
+  redirect '/bookmark'
+end
+
 
 # ====================================================
 # login and creating session

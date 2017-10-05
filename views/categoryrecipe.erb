@@ -14,6 +14,17 @@
             <div class="difficulty"> <%= recipe.difficulty %></div>
             <div class="serving"> <%= recipe.serving %></div>
             <div class="view-recipe"><a href="/recipe/<%= recipe.id %>">View recipe</a></div>
+            <% if !is_recipe_has_been_bookmarked(recipe.id) %>
+            <div class="">
+              <form class='same-line' action="/bookmark" method="post">
+                <input type="hidden" name="recipe_id" value="<%= recipe.id %>">
+                <button class="button button3 same-line" type="submit">
+                  Add Boookmark
+                </button>
+              </form>
+            </div>
+            <% end %>
+
           </div>
 
           <div class="right">

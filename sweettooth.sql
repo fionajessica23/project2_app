@@ -37,7 +37,7 @@ CREATE TABLE recipes (
   category_id INTEGER NOT NULL,
   FOREIGN KEY (category_id) REFERENCES categories (id),
 
-    created_at VARCHAR(400) DEFAULT now()
+  created_at VARCHAR(400) DEFAULT now()
 );
 
 

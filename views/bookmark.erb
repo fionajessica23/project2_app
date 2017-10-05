@@ -1,23 +1,32 @@
 <div class="bookmark">
   <h1>My Saved Recipe page</h1>
 
-  <% if @recipes.empty? %>
-    Sorry, there is no recipe under this category
+
+  <% if @user_recipe_bookmarks.empty? %>
+    Sorry, you have not bookmarked any recipe
   <% else %>
     <div>
-      <% @recipes.each do |recipe| %>
+      <% @user_recipe_bookmarks.each do |bookmark| %>
         <div class="recipe-box">
 
           <div class="left">
-            <div class="title"><%= recipe.title %></div>
-            <div class="prep-time"><%= recipe.prep_time %> minutes</div>
-            <div class="difficulty"> <%= recipe.difficulty %></div>
-            <div class="serving"> <%= recipe.serving %></div>
-            <div class="view-recipe"><a href="/recipe/<%= recipe.id %>">View recipe</a></div>
+            <div class="title"><%= bookmark.recipe.title %></div>
+            <div class="prep-time"><%= bookmark.recipe.prep_time %> minutes</div>
+            <div class="difficulty"> <%= bookmark.recipe.difficulty %></div>
+            <div class="serving"> <%= bookmark.recipe.serving %></div>
+            <div class="view-recipe"><a href="/recipe/<%= bookmark.recipe.id %>">View recipe</a></div>
+            <div class="">
+              <form class='same-line' action="/bookmark/<%= bookmark.recipe.id %>" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button class="button button3 same-line" type="submit">
+                  Removed From Bookmark
+                </button>
+              </form>
+            </div>
           </div>
 
           <div class="right">
-            <div><a href="/recipe/<%= recipe.id %>"><img class="list-recipe-image" src="<%= recipe.image %>"></a></div>
+            <div><a href="/recipe/<%= bookmark.recipe.id %>"><img class="list-recipe-image" src="<%= bookmark.recipe.image %>"></a></div>
           </div>
 
         </div>

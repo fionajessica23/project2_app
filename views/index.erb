@@ -17,22 +17,22 @@
   <div class="all-recipe-list">
     <!--- loop category list and each of category loop again to get top 3 recipes -->
     <div class="category-cake-recipe same-line">
-      <div class=""><h2>Top 3 Category <%= @categories[0].name%></h2></div>
-      <div class=""><a href="/recipe/1">Recipe 1</a></div>
-      <div class=""><a href="/recipe/2">Recipe 2</a></div>
-      <div class=""><a href="/recipe/3">Recipe 3</a></div>
+      <div class=""><h2>Recent <%= @categories[0].name%> recipe</h2></div>
+      <% @recent_3_recipe_category1.each do |recipe| %>
+      <div class=""><%= recipe.title %></div>
+      <% end %>
     </div>
     <div class="category-ice-cream-recipe same-line">
-      <div class=""><h2>Top 3 Category <%= @categories[1].name%></h2></div>
-      <div class=""><a href="/recipe/4">Recipe 4</a></div>
-      <div class=""><a href="/recipe/5">Recipe 5</a></div>
-      <div class=""><a href="/recipe/6">Recipe 6</a></div>
+      <div class=""><h2>Recent <%= @categories[1].name%> recipe</h2></div>
+      <% @recent_3_recipe_category2.each do |recipe| %>
+      <div class=""><%= recipe.title %></div>
+      <% end %>
     </div>
     <div class="category-drink-recipe same-line">
-      <div class=""><h2>Top 3 Category <%= @categories[2].name%></h2></div>
-      <div class=""><a href="/recipe/7">Recipe 7</a></div>
-      <div class=""><a href="/recipe/8">Recipe 8</a></div>
-      <div class=""><a href="/recipe/9">Recipe 9</a></div>
+      <div class=""><h2>Recent <%= @categories[2].name%> recipe</h2></div>
+      <% @recent_3_recipe_category3.each do |recipe| %>
+      <div class=""><%= recipe.title %></div>
+      <% end %>
     </div>
   </div>
 </div>
