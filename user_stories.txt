@@ -1,0 +1,21 @@
+User Stories for Sweet Tooth Recipe App:
+
+1. As a register user, I want to navigate through my recipe page so I can view my recipe list.
+
+2. As a register user, I want to be able to add new recipe so I can share my personal recipe to public.
+
+3. As a register user, I want to be able to edit recipe so I can correct/update previous recipe that I have posted.
+
+4. As a register user, I want to be able to remove my recipe so I can delete it permanently from the app.
+
+5. As a register user, I should be able to login and logout to and from the app.
+
+6. As a register user, I want to be able to bookmark any recipes that I like so I can revisit them easily.
+
+7. As a public user, I should be able to register to the site to have more access to the features.
+
+8. As a public user, I want to view homepage so I can see what this app about.
+
+9. As a public user, I want to view recipe list of particular category so I can navigate according to the category.
+
+10. As a public user, I want to view recipe detail page so I can get all the informations for a particular recipe.
