@@ -22,12 +22,13 @@ The last one is I added bookmarking feature for registered users.
 ### Technologies used
 
 * Active record
-* Active model
 * PostgreSQL database
 * Sinatra
 * Sinatra flash
 * Sinatra generator
 * Sinatra contrib
+* PG
+
 
 ---
 
