@@ -9,5 +9,3 @@ require_relative 'models/bookmark'
 
 
 puts 'yay'
-
-binding.pry
