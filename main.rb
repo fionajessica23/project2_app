@@ -30,12 +30,10 @@ helpers do
     end
   end
 
-
   def is_recipe_has_been_bookmarked(recipe_id)
     # if nil = false, meaning record is exist
     return !Bookmark.find_by(user_id: session[:user_id], recipe_id: recipe_id).nil?
   end
-
 end
 
 get '/page404' do
